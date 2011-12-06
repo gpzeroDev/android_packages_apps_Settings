@@ -39,16 +39,6 @@
                 android:targetClass="com.android.phone.CallFeaturesSetting" />
         </com.android.settings.IconPreferenceScreen>
 
-	<!-- CM Settings -->
-        <com.android.settings.IconPreferenceScreen
-            settings:icon="@drawable/ic_cyanogenmod"
-            android:title="@string/cm_settings_title">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.cyanogenmod.cmparts"
-                android:targetClass="com.cyanogenmod.cmparts.activities.MainActivity" />
-        </com.android.settings.IconPreferenceScreen>
-
        <!-- Device Settings -->
        <com.android.settings.IconPreferenceScreen
            android:key="device_settings"

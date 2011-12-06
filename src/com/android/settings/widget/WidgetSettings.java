@@ -65,8 +65,6 @@ public class WidgetSettings extends Activity {
 
     public static final String TOGGLE_AIRPLANE = "toggleAirplane";
 
-    public static final String TOGGLE_FLASHLIGHT = "toggleFlashlight";
-
     public static final String TOGGLE_LOCK_SCREEN = "toggleLockScreen";
 
     public static final String MONITOR_DATA_ROAMING = "monitorDataRoaming";
@@ -145,7 +143,6 @@ public class WidgetSettings extends Activity {
         selectedButtons.add((CheckBox) findViewById(R.id.toggleWifi));
         selectedButtons.add((CheckBox) findViewById(R.id.toggleBluetooth));
         selectedButtons.add((CheckBox) findViewById(R.id.toggleGPS));
-        selectedButtons.add((CheckBox) findViewById(R.id.toggleData));
         selectedButtons.add((CheckBox) findViewById(R.id.toggleSync));
         selectedButtons.add((CheckBox) findViewById(R.id.toggleBrightness));
 
@@ -161,7 +158,6 @@ public class WidgetSettings extends Activity {
         findViewById(R.id.toggleBrightness).setOnClickListener(listener);
         findViewById(R.id.toggleAirplane).setOnClickListener(listener);
         findViewById(R.id.toggleLockScreen).setOnClickListener(listener);
-        findViewById(R.id.toggleFlashlight).setOnClickListener(listener);
         findViewById(R.id.toggleWifiAp).setOnClickListener(listener);
         findViewById(R.id.toggleWimax).setOnClickListener(listener);
         findViewById(R.id.useRoundCorners).setOnClickListener(listener);
@@ -397,8 +393,6 @@ public class WidgetSettings extends Activity {
                     selectedButtons.indexOf(findViewById(R.id.toggleAirplane)) + 1);
             editor.putInt(TOGGLE_LOCK_SCREEN,
                     selectedButtons.indexOf(findViewById(R.id.toggleLockScreen)) + 1);
-            editor.putInt(TOGGLE_FLASHLIGHT,
-                    selectedButtons.indexOf(findViewById(R.id.toggleFlashlight)) + 1);
             editor.putInt(TOGGLE_WIFI_AP,
                     selectedButtons.indexOf(findViewById(R.id.toggleWifiAp)) + 1);
             editor.putInt(TOGGLE_WIMAX,
@@ -590,8 +584,6 @@ public class WidgetSettings extends Activity {
                 return R.drawable.ic_appwidget_settings_orientation_on;
             case R.id.toggleLockScreen:
                 return R.drawable.ic_appwidget_settings_lock_screen_on;
-            case R.id.toggleFlashlight:
-                return R.drawable.ic_appwidget_settings_flashlight_on;
             case R.id.toggleAirplane:
                 return R.drawable.ic_appwidget_settings_airplane_on;
             case R.id.toggleBrightness:
@@ -609,16 +601,15 @@ public class WidgetSettings extends Activity {
         editor.putInt(TOGGLE_WIFI, 1);
         editor.putInt(TOGGLE_BLUETOOTH, 2);
         editor.putInt(TOGGLE_GPS, 3);
-        editor.putInt(TOGGLE_DATA, 4);
+        editor.putInt(TOGGLE_DATA, 0);
         editor.putInt(TOGGLE_2G3G, 0);
-        editor.putInt(TOGGLE_SYNC, 5);
+        editor.putInt(TOGGLE_SYNC, 4);
         editor.putInt(TOGGLE_SOUND, 0);
         editor.putInt(TOGGLE_SCREEN_TIMEOUT, 0);
         editor.putInt(TOGGLE_AUTO_ROTATE, 0);
-        editor.putInt(TOGGLE_BRIGHTNESS, 6);
+        editor.putInt(TOGGLE_BRIGHTNESS, 5);
         editor.putInt(TOGGLE_AIRPLANE, 0);
         editor.putInt(TOGGLE_LOCK_SCREEN, 0);
-        editor.putInt(TOGGLE_FLASHLIGHT, 0);
         editor.putInt(TOGGLE_WIFI_AP, 0);
         editor.putInt(TOGGLE_WIMAX, 0);
 
@@ -626,7 +617,7 @@ public class WidgetSettings extends Activity {
         editor.putInt(BACKGROUND_IMAGE, 0);
         editor.putBoolean(USE_VERTICAL, false);
         editor.putInt(SAVED, SettingsAppWidgetProvider.WIDGET_PRESENT);
-        editor.putInt(LAST_BUTTON, 6);
+        editor.putInt(LAST_BUTTON, 5);
 
         editor.commit();
     }

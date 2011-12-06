@@ -200,12 +200,34 @@
     <item msgid="1276641209451816572">"Solo en modo silencio"</item>
     <item msgid="8418930333779132418">"Si no está en modo silencio"</item>
   </string-array>
+ 
+     <string-array name="networkModesWidget" translatable="false">
+        <item>2G/3G2G</item>
+        <item>2G/3G Solo</item>
+        <item>2G/3G Solo/3G2G</item>
+    </string-array>
 
-  <string-array name="profile_entries">
-    <item>Encendido</item>
-    <item>Apagado</item>
-    <item>No anular</item>
-  </string-array>
+    <string-array name="ringModeWidget" translatable="false">
+        <item>SonidoVibración/Vibración</item>
+        <item>Sonido/Vibración</item>
+        <item>Sonido/Silencio</item>
+        <item>SonidoVib/Vib/Silencio</item>
+        <item>Sonido/Vibración/Silencio</item>
+    </string-array>
+    
+      <string-array name="profile_entries">
+        <item>Encendido</item>
+        <item>Apagado</item>
+        <item>No anular</item>
+    </string-array>
+
+    <string-array name="bluetooth_discoverable_duration_entries">
+        <item>60 segundos</item>
+        <item>120 segundos</item>
+        <item>300 segundos</item>
+        <item>600 segundos</item>
+        <item>Infinito</item>
+    </string-array>
 
   <string-array name="profile_connection_entries">
     <item>Apagado</item>

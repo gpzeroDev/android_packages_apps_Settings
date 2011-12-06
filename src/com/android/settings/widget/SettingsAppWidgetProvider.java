@@ -22,7 +22,6 @@ import com.android.settings.widget.buttons.AirplaneButton;
 import com.android.settings.widget.buttons.AutoRotateButton;
 import com.android.settings.widget.buttons.BluetoothButton;
 import com.android.settings.widget.buttons.BrightnessButton;
-import com.android.settings.widget.buttons.FlashlightButton;
 import com.android.settings.widget.buttons.GPSButton;
 import com.android.settings.widget.buttons.LockScreenButton;
 import com.android.settings.widget.buttons.MobileDataButton;
@@ -203,7 +202,6 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
         ScreenTimeoutButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
         AirplaneButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
         LockScreenButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
-        FlashlightButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
         BrightnessButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
         WimaxButton.getInstance().updateState(context, globalPreferences, appWidgetIds);
     }
@@ -272,8 +270,6 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
                     widgetPreferences, appWidgetId);
             BrightnessButton.getInstance().updateView(context, views, globalPreferences,
                     widgetPreferences, appWidgetId);
-            FlashlightButton.getInstance().updateView(context, views, globalPreferences,
-                    widgetPreferences, appWidgetId);
             LockScreenButton.getInstance().updateView(context, views, globalPreferences,
                     widgetPreferences, appWidgetId);
             AirplaneButton.getInstance().updateView(context, views, globalPreferences,
@@ -302,8 +298,7 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         logD(">> onReceive IN");
         super.onReceive(context, intent);
-        if ("net.cactii.flash2.TORCH_STATE_CHANGED".equals(intent.getAction())) {
-        } else if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+        if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {
             logD("Received Wifi state change");
             WifiButton.getInstance().onReceive(context, intent);
         } else if (WifiManager.WIFI_AP_STATE_CHANGED_ACTION.equals(intent.getAction())) {
@@ -358,9 +353,6 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
             } else if (buttonId == WidgetButton.BUTTON_BRIGHTNESS) {
                 logD("Received brightness change request");
                 BrightnessButton.getInstance().toggleState(context);
-            } else if (buttonId == WidgetButton.BUTTON_FLASHLIGHT) {
-                logD("Received flahslight change request");
-                FlashlightButton.getInstance().toggleState(context);
             } else if (buttonId == WidgetButton.BUTTON_LOCK_SCREEN) {
                 logD("Received Lock Screen change request");
                 LockScreenButton.getInstance().toggleState(context);
